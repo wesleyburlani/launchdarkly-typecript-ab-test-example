@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  web:
+    build: docker/development
+    environment:
+      NODE_PATH: /app/launchdarkly
+      VIRTUAL_HOST: launchdarkly.localtest.me
+      VIRTUAL_PORT: 6003
+    ports:
+      - "6003:3000"
+    networks:
+      default:
+        aliases:
+          - launchdarkly.localtest.me
+      proxy:
+        aliases:
+          - launchdarkly.localtest.me
+    volumes:
+      - .:/app
+
+networks:
+  proxy:
+    external: true

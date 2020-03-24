@@ -1,0 +1,33 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "file": "index.js",
+  "scripts": {
+    "build": "npm run build-production",
+    "build-staging": "webpack --mode=production --env.staging",
+    "build-production": "webpack --mode=production --env.production",
+    "lint": "tslint --project .",
+    "lint:fix": "tslint --project . --fix",
+    "start": "webpack-dev-server --mode=development --env.development",
+    "test": "mocha --require ts-node/register --watch-extensions ts test/**/*.test.ts",
+    "test:watch": "yarn test --watch"
+  },
+  "dependencies": {
+    "@types/node": "^13.7.7",
+    "inversify": "^2.0.0-rc.14",
+    "launchdarkly-node-client-sdk": "^1.4.2",
+    "reflect-metadata": "^0.1.13",
+    "requirejs": "^2.3.6",
+    "webpack": "^4.42.0",
+    "webpack-dev-server": "^3.10.3",
+    "yargs": "^15.1.0"
+  },
+  "devDependencies": {
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "ts-loader": "^6.2.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
